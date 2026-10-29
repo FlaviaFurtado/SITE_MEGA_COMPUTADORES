@@ -78,11 +78,38 @@ h3 { font-size: 1.2rem; }
     border-radius: .5rem;
 }
 .hero__mascote { justify-self: center; filter: drop-shadow(0 12px 24px rgba(1, 47, 94, .35)); }
+.hero__visual { position: relative; justify-self: center; }
+.hero__marcas {
+    position: absolute;
+    left: 100%;
+    top: 8%;
+    width: 260px;
+    margin-left: 1rem;
+    padding: .8rem;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 12px 24px rgba(1, 47, 94, .25);
+}
+.hero__marcas-titulo {
+    margin-bottom: .4rem;
+    font-size: .75rem;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--azul-escuro);
+}
 
 /* ===== SEÇÕES ===== */
 .secao { padding: 4rem 0; }
 .secao__intro { margin: .6rem 0 2rem; max-width: 40rem; }
-.secao--azul { background: var(--azul); color: #fff; }
+.secao--azul { position: relative; background: var(--azul); color: #fff; }
+.produtos__mascote {
+    position: absolute;
+    right: calc(50% + 550px + 1.5rem);
+    bottom: 4rem;
+    width: clamp(150px, calc((100vw - 1100px) / 2 - 3rem), 300px);
+    filter: drop-shadow(0 12px 24px rgba(1, 47, 94, .35));
+}
 .secao--azul h2 { color: #fff; }
 
 .grade { display: grid; gap: 1.5rem; }
@@ -132,7 +159,13 @@ h3 { font-size: 1.2rem; }
 
 /* ===== CELULAR ===== */
 @media (max-width: 760px) {
+    .hero__marcas { position: static; width: 100%; max-width: 320px; margin: 1rem auto 0; }
     .hero::before { inset: 45% 0 0 0; clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%); }
     .hero__grid, .rodape__grid { grid-template-columns: 1fr; }
     .hero__mascote { max-width: 260px; }
+}
+
+/* some em telas sem espaço lateral */
+@media (max-width: 1500px) {
+    .produtos__mascote { display: none; }
 }
